@@ -1,56 +1,50 @@
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
 class Solution {
 public:
     vector<int> distanceK(TreeNode* root, TreeNode* target, int k) {
-        map<TreeNode*, TreeNode*> mpp;
+        map<TreeNode*,TreeNode*> m;
         queue<TreeNode*> q;
         q.push(root);
-        //We are adding links back to the parent from the child
         while(!q.empty()){
-            auto tmp = q.front();
+            TreeNode* temp=q.front();
             q.pop();
-            //now add links while adding elemnets into the queue left and right
-            if(tmp->left){
-                q.push(tmp->left);
-                mpp[tmp->left] = tmp;
-            }
-            if(tmp->right){
-                q.push(tmp->right);
-                mpp[tmp->right] = tmp;
+            if(temp->left){
+                m[temp->left]=temp;
+                q.push(temp->left);
+            }if(temp->right){
+                m[temp->right]=temp;
+                q.push(temp->right);
             }
         }
-        set<TreeNode*> vis;
-        int dist = 0;
-        while(!q.empty()) q.pop();
+        if(k==0)return {target->val};
         q.push(target);
-        vis.insert(target);
-    while (dist != k) {
-        int size = q.size();
-        while (size > 0) {
-            auto curr = q.front();
-            q.pop();
-            size--;
-
-            if (curr->left && vis.find(curr->left) == vis.end()) {
-                q.push(curr->left);
-                vis.insert(curr->left);
-            }
-            if (curr->right && vis.find(curr->right) == vis.end()) {
-                q.push(curr->right);
-                vis.insert(curr->right);
-            }
-            if (mpp.find(curr) != mpp.end() && vis.find(mpp[curr]) == vis.end()) {
-                q.push(mpp[curr]);
-                vis.insert(mpp[curr]);
-            }
+        set<TreeNode*> vis;
+        while(!q.empty()){
+            int x=q.size();
+            while(x--){
+                TreeNode* temp=q.front();
+                vis.insert(temp);
+                q.pop();
+                if(temp->left && vis.find(temp->left)==vis.end()){
+                    q.push(temp->left);
+                }if(temp->right && vis.find(temp->right)==vis.end()){
+                    q.push(temp->right);
+                }if(m.find(temp)!=m.end() && vis.find(m[temp])==vis.end())q.push(m[temp]);
+            }k--;
+            if(k==0)break;
         }
-        dist++;
-    }
-
-    vector<int> ans;
-    while (!q.empty()) {
-        ans.push_back(q.front()->val);
-        q.pop();
-    }
-        return ans;
+        vector<int> ans;
+        while(!q.empty()){
+            ans.push_back(q.front()->val);
+            q.pop();
+        }return ans;
     }
 };
