@@ -1,27 +1,20 @@
 class Solution {
-private:
-    bool isValid(vector<vector<char>>& board, int i, int j, char value){
-        int sRow = i/3*3;
-        int sCol = j/3*3;
-
-        for(int k=0; k<9; k++){
-            if(board[i][k] == value) return false;
-            if(board[k][j] == value) return false;
-            if(board[k/3+sRow][k%3+sCol] == value) return false;
-        }
-        return true;
-    }
 public:
     bool isValidSudoku(vector<vector<char>>& board) {
-        for(int i=0; i<9; i++){
-            for(int j=0; j<9; j++){
-                if(board[i][j] == '.') continue;
-                char value = board[i][j];
-                board[i][j] = '.';
-                if(!isValid(board,i,j, value)) return false;
-                board[i][j] = value;
-            }
-        }
-        return true;
+        int rows[9][9]={0};
+        int cols[9][9]={0};
+        int blocks[3][3][9]={0};
+        for(int r=0;r<9;r++)
+            for(int c=0;c<9;c++)
+                if(board[r][c]!='.'){
+                    int number=board[r][c]-'1';
+                    if(rows[r][number]++)
+                    return 0;
+                    if(cols[c][number]++)
+                    return 0;
+                    if(blocks[r/3][c/3][number]++)
+                    return 0;
+                }
+        return 1;
     }
 };
