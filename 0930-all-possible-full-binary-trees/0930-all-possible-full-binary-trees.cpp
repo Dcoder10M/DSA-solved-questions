@@ -11,7 +11,7 @@ public:
         if(dp.find(n)!=dp.end()){
             return dp[n];
         }
-        for(int i=1;i<n;i++){
+        for(int i=1;i<n;i+=2){
             vector<TreeNode*> left=allPossibleFBT(i);
             vector<TreeNode*> right=allPossibleFBT(n-1-i);
             for(auto l:left){
