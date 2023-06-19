@@ -1,5 +1,6 @@
 class Solution {
 public:
+
     unordered_map<int, vector<TreeNode *>> dp;
     vector<TreeNode*> allPossibleFBT(int n) {
         vector<TreeNode*> ans;
@@ -11,7 +12,8 @@ public:
         if(dp.find(n)!=dp.end()){
             return dp[n];
         }
-        for(int i=1;i<n;i+=2){
+        for(int i=0;i<n;i++){
+            if(i%2==0 || (n-1-i)%2==0)continue;
             vector<TreeNode*> left=allPossibleFBT(i);
             vector<TreeNode*> right=allPossibleFBT(n-1-i);
             for(auto l:left){
@@ -26,3 +28,4 @@ public:
         return dp[n]=ans;
     }
 };
+
