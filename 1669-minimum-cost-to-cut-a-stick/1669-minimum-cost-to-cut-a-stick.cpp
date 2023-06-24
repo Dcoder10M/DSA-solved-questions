@@ -4,7 +4,6 @@ public:
     map<pair<int, int>, int> mem;
 
     int rec(int i, int j, vector<int> &cuts){
-        if(i>=j)return 0;
         if(mem.find({i, j}) != mem.end()) return mem[{i, j}];
         
         bool flag = false;
@@ -20,6 +19,7 @@ public:
             flag = true;
         }
 
+        if(!flag) return 0;
         return mem[{i, j}];
     }
 
