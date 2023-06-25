@@ -30,12 +30,10 @@ public:
             int value= 0;
             if(j1==j2)
             {
-                value = grid[i][j1]+ find(i+1,j1+dx, j2+dy,n,m,grid,dp);
+                value = grid[i][j1] + find(i+1,j1+dx, j2+dy,n,m,grid,dp);
             }else{
                 value = grid[i][j1] + grid[i][j2]+find(i+1,j1+dx, j2+dy,n,m,grid,dp);
             }
-            
-           
             maxi=max(maxi,value);
             }
         }
