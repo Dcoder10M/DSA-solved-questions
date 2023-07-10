@@ -28,7 +28,7 @@ public:
         }
         while(!s.empty())s.pop();
         for(int i=0;i<n;i++){
-            while(!s.empty() && nums[s.top()]>=nums[i]){
+            while(!s.empty() && nums[s.top()]>nums[i]){
                 s.pop();
             }
             if(s.empty()){
@@ -38,7 +38,7 @@ public:
         }
         while(!s.empty())s.pop();
         for(int i=n-1;i>=0;i--){
-            while(!s.empty() && nums[s.top()]>nums[i]){
+            while(!s.empty() && nums[s.top()]>=nums[i]){
                 s.pop();
             }
             if(s.empty()){
