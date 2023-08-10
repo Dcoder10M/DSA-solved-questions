@@ -5,7 +5,7 @@ public:
         int n = nums.size();
         for(int i=0; i<n; i++)
         {
-            if(mp.count(nums[i]))
+            if(mp.find(nums[i])!=mp.end())
             {
                 if(abs(i-mp[nums[i]])<=k)
                     return true;
