@@ -6,9 +6,6 @@ public:
             if(i==INT_MIN)op++;
         }   if(op==1)return INT_MIN;
         op=0;
-        for(auto i:nums){
-            if(i==INT_MAX)op++;
-        }   if(op==1)return INT_MAX;
         map<long long,long long> m;
         for(long long i=0;i<31;i++){
             long long temp=1<<i;
