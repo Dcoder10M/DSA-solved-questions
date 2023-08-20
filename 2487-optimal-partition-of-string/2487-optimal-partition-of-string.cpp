@@ -2,14 +2,14 @@ class Solution {
 public:
     int partitionString(string s) {
         int ans=0;
-        map<char,int> m;
+        set<char> m;
         int n=s.size();
         for(int i=0;i<n;i++){
-            if(m[s[i]]>0){
+            if(m.find(s[i])!=m.end()){
                 ans++;
                 m.clear();
             }
-            m[s[i]]=1;
+            m.insert(s[i]);
         }return ans+1;
     }
 };
