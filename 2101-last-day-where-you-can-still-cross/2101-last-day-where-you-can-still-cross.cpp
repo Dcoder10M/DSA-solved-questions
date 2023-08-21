@@ -2,7 +2,7 @@ class Solution {
 public:
     int latestDayToCross(int row, int col, vector<vector<int>>& cells) {
         int lo = -1, hi = cells.size(), ans = 0;
-        if(hi<=1)return hi; 
+        // if(hi<=1)return hi; 
         while (lo +1< hi) {
             int mid = (lo+hi) / 2;
             if (canWalk(cells, row, col, mid)) {
