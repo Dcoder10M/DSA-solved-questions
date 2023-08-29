@@ -1,21 +1,22 @@
 class Solution {
 public:
-    bool dfs(int node,int parent,vector<vector<int>>& adj,vector<int> &vis){
-        if(parent!=-1)vis[node]=!vis[parent];
+    bool dfs(int node,vector<int> &vis,vector<vector<int>> &adj){
         for(auto i:adj[node]){
-            if(vis[i]==-1){
-                if(dfs(i,node,adj,vis))return 1;
-            }else if(vis[i]==vis[node]){
-                return 1;
+            if(!vis[i]){
+                vis[i]=3-vis[node];
+                if(!dfs(i,vis,adj))return false;
+            }else{
+                if(vis[i]==vis[node])return false;
             }
-        }return 0;
+        }return true;
     }
-    bool isBipartite(vector<vector<int>>& adj) {
-        int n=adj.size();
-        vector<int> vis(n,-1);
+    bool isBipartite(vector<vector<int>>& graph) {
+        int n=graph.size();
+        vector<int> vis(n,0);
         for(int i=0;i<n;i++){
-            if(vis[i]==-1){
-                if(dfs(i,-1,adj,vis))return false;
+            if(!vis[i]){
+                vis[i]=1;
+                if(!dfs(i,vis,graph))return false;
             }
         }return true;
     }
