@@ -1,56 +1,36 @@
 class Solution {
 public:
-    long long dp[101][2][2][11];//position,tight,leading zeroes,prev digit
-    long long mod=1e9+7;
-    bool check(string low) {
-        for (long long i = 1; i < low.size(); i++) {
-            long long a = low[i - 1] - '0';
-            long long b = low[i] - '0';
-            if (abs(b - a) != 1) {
-                return false;
-            }
+long long  mod=1e9+7;
+    long long dp[200][2][2][13];
+    long long solve(long long ind,long long tight,long long lz,long long prev,string &s){
+        if(ind==s.size())return 1;
+        if(dp[ind][tight][lz][prev]!=-1)return dp[ind][tight][lz][prev]%mod;
+        long long ans=0;
+        long long limit=9;
+        if(tight)limit=s[ind]-'0';
+        if(lz){
+            ans=(ans+solve(ind+1,0,1,12,s))%mod;
         }
-        return true;
-    }
-
-    long long helper(string s,long long pos,long long tight,long long zero,long long prev){
-        if(pos==s.size()){
-            
-            if(zero)return 0;
-            return 1;
-        }
-        if(dp[pos][tight][zero][prev]!=-1)return dp[pos][tight][zero][prev];
-        long long limit=(tight==1)?s[pos]-'0':9;
-        long long res=0;
         for(long long i=0;i<=limit;i++){
-            if(zero && i==0){
-                res=(res+helper(s,pos+1,tight&(i==limit),1,0))%mod;
+            if(lz && i==0)continue;
+            if(prev==12 || abs(prev-i)==1){
+                ans=(ans+solve(ind+1,(tight&&(i==limit)),0,i,s))%mod;
             }
-            else if(zero && i>0){
-                res=(res+helper(s,pos+1,tight&(i==limit),0,i))%mod;
-            }
-            else{//this case is when zero==0
-                if(abs(i-prev)==1){
-                    res=(res+helper(s,pos+1,tight&(i==limit),0,i))%mod;
-                }
-            }
-        }
-        return dp[pos][tight][zero][prev]=res%mod;
+        }return dp[ind][tight][lz][prev]=ans%mod;
     }
-    int countSteppingNumbers(string low, string high) {
+    long long brute(string &s){
+        for(long long i=0;i<s.size()-1;i++){
+            long long a=s[i]-'0';
+            long long b=s[i+1]-'0';
+            if(abs(a-b)!=1)return 0;
+        }return 1;
+    }
+    long long countSteppingNumbers(string low, string high) {
         memset(dp,-1,sizeof(dp));
-        long long a=(helper(high,0,1,1,0))%mod;
-        
+        long long ans=solve(0,1,1,12,high);
         memset(dp,-1,sizeof(dp));
-        long long b=(helper(low,0,1,1,0))%mod;
-        
-        long long extra=0;
-        cout<<a<<" "<<b;
-        if(check(low))
-        extra++;
-        
-        
-        return (a-b+extra+mod)%mod;
-        
+        ans=(ans-solve(0,1,1,12,low)+mod)%mod;
+        ans=(ans+brute(low))%mod;
+        return ans%mod;
     }
 };
