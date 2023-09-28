@@ -1,6 +1,6 @@
 class Solution {
 public:
-    int dp[11][2][2][10000];
+    int dp[11][2][2][1000];
     int solve(int ind,int tight,int leading_zero,int one_count,string &s){
         if(ind==s.size())return one_count;
         if(dp[ind][tight][leading_zero][one_count]!=-1)return dp[ind][tight][leading_zero][one_count];
