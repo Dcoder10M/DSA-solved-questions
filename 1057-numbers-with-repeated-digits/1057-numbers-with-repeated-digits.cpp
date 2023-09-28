@@ -1,25 +1,36 @@
 class Solution {
 public:
-    int dp[11][1<<11][3];
-    int solve(int ind,int mask,int tight,string num){
-        if(ind==num.size())return 1;
-        if(dp[ind][mask][tight]!=-1)return dp[ind][mask][tight];
-        int limit=9;
-        if(tight)limit=num[ind]-'0';
-        int ans=0;
-        for(int digit=0;digit<=limit;digit++){
-            if(digit==0 && mask==0){
-                ans+=solve(ind+1,mask,0,num);
+    int dp[11][2][1025]; // 1025 -> (1 << 10)
+    int dfs(int i, int mask, bool tight, string &digits) {
+        if(i == digits.size()) {
+            return mask == 0 ? 0 : 1;
+        }
+
+        if(dp[i][tight][mask] != -1) return dp[i][tight][mask];
+
+        int limit = 9, res = 0;
+        if(tight) limit = (digits[i] - '0');
+
+        for(int dig = 0; dig <= limit; dig++) {
+            // mask = 0 -> No number has been formed yet &
+            // dig = 0 -> We can't select first digit as 0 
+            if(mask == 0 && dig == 0) {
+                res += dfs(i + 1, mask, (tight & (limit == dig)), digits);
                 continue;
             }
-            if((mask&(1<<digit))==0){
-                ans+=solve(ind+1,mask|(1<<digit),(tight&&(digit==limit)),num);
+            // Check if the current digit has already been included
+            int repeated = mask & (1 << dig);
+            // If it hasn't, include it and furthur proceed
+            if(repeated == 0) {
+                res += dfs(i + 1, mask | (1 << dig), (tight & (limit == dig)), digits);
             }
-        }return dp[ind][mask][tight]=ans;
+        }
+
+        return dp[i][tight][mask] = res;
     }
     int numDupDigitsAtMostN(int n) {
-        string s=to_string(n);
-        memset(dp,-1,sizeof(dp));
-        return n-solve(0,0,1,s)+1;
+        memset(dp, -1, sizeof dp);
+        string x = to_string(n);
+        return n - dfs(0, 0, true, x);
     }
 };
