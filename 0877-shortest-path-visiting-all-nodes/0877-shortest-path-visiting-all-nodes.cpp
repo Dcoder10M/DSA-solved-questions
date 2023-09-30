@@ -4,7 +4,7 @@ public:
         int n=graph.size();
         int ans=0;
         queue<pair<int,int>> q;
-        set<pair<int,int>> s;
+        map<pair<int,int>,int> s;
         for(int i=0;i<n;i++){
             int mask=1<<i;
             q.push({i,mask});
@@ -14,8 +14,8 @@ public:
             while(x--){
                 pair<int,int> pp=q.front();
                 q.pop();
-                if(s.find(pp)!=s.end())continue;
-                s.insert(pp);
+                if(s[pp]==1)continue;
+                s[pp]=1;
                 int mask=pp.second;
                 if(pp.second==((1<<n)-1))return ans;
                 int node=pp.first;
