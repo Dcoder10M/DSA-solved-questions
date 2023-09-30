@@ -1,16 +1,18 @@
 class Solution {
 public:
-    int maxSatisfaction(vector<int>& satisfaction) {
-        sort(satisfaction.begin(),satisfaction.end());
-        // for(auto i: satisfaction) cout<<i<<" ";
-        int sum=0;
-        for(int i=0;i<satisfaction.size();i++){
-            int x=1,s=0;
-            for(int j=i;j<satisfaction.size();j++){
-                s+=satisfaction[j]*(x++);
-            }
-            sum=max(s,sum);
+    int dp[501][501];
+    int solve(int ind,int factor,vector<int>& a){
+        if(ind==a.size()){
+            return 0;
         }
-        return sum;
+        if(dp[ind][factor]!=-1)return dp[ind][factor];
+        int take=factor*a[ind] + solve(ind+1,factor+1,a);
+        int nottake=solve(ind+1,factor,a);
+        return dp[ind][factor]=max(take,nottake);
+    }
+    int maxSatisfaction(vector<int>& a) {
+        sort(a.begin(),a.end());
+        memset(dp,-1,sizeof(dp));
+        return solve(0,1,a);
     }
 };
