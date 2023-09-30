@@ -11,6 +11,8 @@ class node
   {
     key = _key;
     val = _val;
+    next=NULL;
+    prev=NULL;
   }
 };
 node* head = new node(-1,-1);
@@ -39,6 +41,7 @@ unordered_map<int,node*>mpp;
        node* delnext = delNode->next;
        delprev->next = delnext;
        delnext->prev = delprev;
+      //  delete(del/Node);
     }
     
     int get(int _key) {
