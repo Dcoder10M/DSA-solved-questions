@@ -1,28 +1,19 @@
 class Solution {
 public:
+    int dp[1001][1001];
+    int solve(int n,int curr,int copied){
+        if(curr==n)return 0;
+        if(curr>n)return 1e8;
+        if(dp[curr][copied]!=-1)return dp[curr][copied];
+        int ans=1e8;
+        if(curr!=copied)
+        ans=2+solve(n,curr+curr,curr);
+        if(copied!=0)
+        ans=min(ans,1+solve(n,curr+copied,copied));
+        return dp[curr][copied]=ans;
+    }
     int minSteps(int n) {
-        if(n==1){
-            return 0;
-        }
-        //cpy->current length of copied A's
-        int cpy=1;
-        //num->current length of A's on notepad
-        int num=1;
-        //ans->stores answer
-        int ans=1;
-        //till number of notepad is not n
-        while(num!=n){
-            ////if n is divisible by copied len then paste
-            if(n%cpy==0){
-                num+=cpy;
-                ans++;
-            }
-            //if new number on notepad divides the target n then copy the new number 
-            if(num!=n && n%num==0){
-                ans++;
-                cpy=num;
-            }
-        }
-        return ans;
+        memset(dp,-1,sizeof(dp));
+        return solve(n,1,0);
     }
 };
