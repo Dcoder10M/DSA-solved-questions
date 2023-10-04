@@ -1,54 +1,41 @@
 class Solution {
 public:
-
-    bool checkValid(vector<string> &board, int row, int col, int size){
-
-        // check straight up 
-        for(int i = row-1;i>=0; i--){
-            if(board[i][col] == 'Q'){
-                return false;
-            }
-        }
-
-        // check diagonals
-        for(int i = 1; i<=row; i++){
-            if(col-i>=0){
-                // left diagonal
-                if(board[row-i][col-i] == 'Q'){
-                    return false;
-                }
-            }
-            if(col+i <size){
-                // right diagonal
-                if(board[row-i][col+i] == 'Q'){
-                    return false;
-                }
-            }
-        }
+    vector<bool> row,col,dia1,dia2;
+    int nn;
+    bool isValid(int x,int y){
+        if(row[x] || col[y] || dia1[nn+x-y] || dia2[x+y])return false;
         return true;
     }
-
-
-    void helper(vector<string> &board,vector<vector<string>> &ans, int row, int size){
-        if(row == size){
-            ans.push_back(board);
+    void solve(int ind,int n,vector<vector<string>> &ans,vector<string> &temp){
+        if(ind==n){
+            ans.push_back(temp);
             return;
         }
-
-        for(int i = 0; i<size; i++){
-            if(checkValid(board, row, i, size)){
-                board[row][i] = 'Q';
-                helper(board, ans, row+1, size);
-                board[row][i] = '.'; // backtrack
+        for(int i=0;i<n;i++){
+            if(isValid(ind,i)){
+                temp[ind][i]='Q';
+                row[ind]=1;
+                col[i]=1;
+                dia1[n+ind-i]=1;
+                dia2[ind+i]=1;
+                solve(ind+1,n,ans,temp);
+                row[ind]=0;
+                col[i]=0;
+                dia1[n+ind-i]=0;
+                dia2[ind+i]=0;
+                temp[ind][i]='.';
             }
         }
     }
-
     vector<vector<string>> solveNQueens(int n) {
-        string str(n, '.');
-        vector<string> board(n, str);
+        nn=n;
+        row.resize(n+1,0);
+        col.resize(n+1,0);
+        dia1.resize(2*n+1,0);
+        dia2.resize(2*n+1,0);
         vector<vector<string>> ans;
-        helper(board, ans, 0, n);
+        vector<string> temp(n,string(n,'.'));
+        solve(0,n,ans,temp);
         return ans;
     }
 };
