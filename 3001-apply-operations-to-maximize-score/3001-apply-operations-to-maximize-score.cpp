@@ -24,7 +24,7 @@ public:
                     el = el / j;
                 }
             }
-            if(el >2) if(!distinct.count(el)) distinct.insert(el);
+            if(el !=1) if(!distinct.count(el)) distinct.insert(el);
             prime_factors[i] = (int) distinct.size(); // prime score
         }
         
