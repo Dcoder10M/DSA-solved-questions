@@ -7,7 +7,7 @@ BEGIN
       )
       SELECT DISTINCT CASE
           WHEN salary IS NOT NULL THEN salary
-          ELSE NULL
+          
       END
       from my_cte where rnk=n
   );
