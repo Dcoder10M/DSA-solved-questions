@@ -4,13 +4,9 @@ public:
     int rangeSum(vector<int>& nums, int n, int left, int right) {
         left--;
         right--;
-        vector<int> curr(n);
-        vector<int> sum(n);
         priority_queue<vector<int>,vector<vector<int>>,greater<vector<int>>> pq;
         for(int i=0;i<n;i++){
-            curr[i]=i;
-            sum[i]=nums[i];
-            pq.push({sum[i],i});
+            pq.push({nums[i],i});
         }
         int cnt=0;
         int ans=0;
