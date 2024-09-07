@@ -51,4 +51,20 @@
 |  |
 | ------- |
 | [1615-range-sum-of-sorted-subarray-sums](https://github.com/Dcoder10M/DSA-solved-questions/tree/master/1615-range-sum-of-sorted-subarray-sums) |
+## Depth-First Search
+|  |
+| ------- |
+| [0210-course-schedule-ii](https://github.com/Dcoder10M/DSA-solved-questions/tree/master/0210-course-schedule-ii) |
+## Breadth-First Search
+|  |
+| ------- |
+| [0210-course-schedule-ii](https://github.com/Dcoder10M/DSA-solved-questions/tree/master/0210-course-schedule-ii) |
+## Graph
+|  |
+| ------- |
+| [0210-course-schedule-ii](https://github.com/Dcoder10M/DSA-solved-questions/tree/master/0210-course-schedule-ii) |
+## Topological Sort
+|  |
+| ------- |
+| [0210-course-schedule-ii](https://github.com/Dcoder10M/DSA-solved-questions/tree/master/0210-course-schedule-ii) |
 <!---LeetCode Topics End-->
