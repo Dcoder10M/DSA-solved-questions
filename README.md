@@ -55,6 +55,7 @@
 |  |
 | ------- |
 | [0210-course-schedule-ii](https://github.com/Dcoder10M/DSA-solved-questions/tree/master/0210-course-schedule-ii) |
+| [0543-diameter-of-binary-tree](https://github.com/Dcoder10M/DSA-solved-questions/tree/master/0543-diameter-of-binary-tree) |
 ## Breadth-First Search
 |  |
 | ------- |
@@ -67,4 +68,12 @@
 |  |
 | ------- |
 | [0210-course-schedule-ii](https://github.com/Dcoder10M/DSA-solved-questions/tree/master/0210-course-schedule-ii) |
+## Tree
+|  |
+| ------- |
+| [0543-diameter-of-binary-tree](https://github.com/Dcoder10M/DSA-solved-questions/tree/master/0543-diameter-of-binary-tree) |
+## Binary Tree
+|  |
+| ------- |
+| [0543-diameter-of-binary-tree](https://github.com/Dcoder10M/DSA-solved-questions/tree/master/0543-diameter-of-binary-tree) |
 <!---LeetCode Topics End-->
