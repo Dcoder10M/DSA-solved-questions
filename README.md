@@ -38,6 +38,7 @@
 ## Array
 |  |
 | ------- |
+| [0493-reverse-pairs](https://github.com/Dcoder10M/DSA-solved-questions/tree/master/0493-reverse-pairs) |
 | [1615-range-sum-of-sorted-subarray-sums](https://github.com/Dcoder10M/DSA-solved-questions/tree/master/1615-range-sum-of-sorted-subarray-sums) |
 ## Two Pointers
 |  |
@@ -46,6 +47,7 @@
 ## Binary Search
 |  |
 | ------- |
+| [0493-reverse-pairs](https://github.com/Dcoder10M/DSA-solved-questions/tree/master/0493-reverse-pairs) |
 | [1615-range-sum-of-sorted-subarray-sums](https://github.com/Dcoder10M/DSA-solved-questions/tree/master/1615-range-sum-of-sorted-subarray-sums) |
 ## Sorting
 |  |
@@ -76,4 +78,24 @@
 |  |
 | ------- |
 | [0543-diameter-of-binary-tree](https://github.com/Dcoder10M/DSA-solved-questions/tree/master/0543-diameter-of-binary-tree) |
+## Divide and Conquer
+|  |
+| ------- |
+| [0493-reverse-pairs](https://github.com/Dcoder10M/DSA-solved-questions/tree/master/0493-reverse-pairs) |
+## Binary Indexed Tree
+|  |
+| ------- |
+| [0493-reverse-pairs](https://github.com/Dcoder10M/DSA-solved-questions/tree/master/0493-reverse-pairs) |
+## Segment Tree
+|  |
+| ------- |
+| [0493-reverse-pairs](https://github.com/Dcoder10M/DSA-solved-questions/tree/master/0493-reverse-pairs) |
+## Merge Sort
+|  |
+| ------- |
+| [0493-reverse-pairs](https://github.com/Dcoder10M/DSA-solved-questions/tree/master/0493-reverse-pairs) |
+## Ordered Set
+|  |
+| ------- |
+| [0493-reverse-pairs](https://github.com/Dcoder10M/DSA-solved-questions/tree/master/0493-reverse-pairs) |
 <!---LeetCode Topics End-->
