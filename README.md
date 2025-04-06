@@ -38,6 +38,7 @@
 ## Array
 |  |
 | ------- |
+| [0368-largest-divisible-subset](https://github.com/Dcoder10M/DSA-solved-questions/tree/master/0368-largest-divisible-subset) |
 | [0493-reverse-pairs](https://github.com/Dcoder10M/DSA-solved-questions/tree/master/0493-reverse-pairs) |
 | [1615-range-sum-of-sorted-subarray-sums](https://github.com/Dcoder10M/DSA-solved-questions/tree/master/1615-range-sum-of-sorted-subarray-sums) |
 ## Two Pointers
@@ -52,6 +53,7 @@
 ## Sorting
 |  |
 | ------- |
+| [0368-largest-divisible-subset](https://github.com/Dcoder10M/DSA-solved-questions/tree/master/0368-largest-divisible-subset) |
 | [1615-range-sum-of-sorted-subarray-sums](https://github.com/Dcoder10M/DSA-solved-questions/tree/master/1615-range-sum-of-sorted-subarray-sums) |
 ## Depth-First Search
 |  |
@@ -98,4 +100,12 @@
 |  |
 | ------- |
 | [0493-reverse-pairs](https://github.com/Dcoder10M/DSA-solved-questions/tree/master/0493-reverse-pairs) |
+## Math
+|  |
+| ------- |
+| [0368-largest-divisible-subset](https://github.com/Dcoder10M/DSA-solved-questions/tree/master/0368-largest-divisible-subset) |
+## Dynamic Programming
+|  |
+| ------- |
+| [0368-largest-divisible-subset](https://github.com/Dcoder10M/DSA-solved-questions/tree/master/0368-largest-divisible-subset) |
 <!---LeetCode Topics End-->
