@@ -41,6 +41,7 @@
 | [0368-largest-divisible-subset](https://github.com/Dcoder10M/DSA-solved-questions/tree/master/0368-largest-divisible-subset) |
 | [0493-reverse-pairs](https://github.com/Dcoder10M/DSA-solved-questions/tree/master/0493-reverse-pairs) |
 | [1615-range-sum-of-sorted-subarray-sums](https://github.com/Dcoder10M/DSA-solved-questions/tree/master/1615-range-sum-of-sorted-subarray-sums) |
+| [3656-minimum-number-of-operations-to-make-elements-in-array-distinct](https://github.com/Dcoder10M/DSA-solved-questions/tree/master/3656-minimum-number-of-operations-to-make-elements-in-array-distinct) |
 ## Two Pointers
 |  |
 | ------- |
@@ -108,4 +109,8 @@
 |  |
 | ------- |
 | [0368-largest-divisible-subset](https://github.com/Dcoder10M/DSA-solved-questions/tree/master/0368-largest-divisible-subset) |
+## Hash Table
+|  |
+| ------- |
+| [3656-minimum-number-of-operations-to-make-elements-in-array-distinct](https://github.com/Dcoder10M/DSA-solved-questions/tree/master/3656-minimum-number-of-operations-to-make-elements-in-array-distinct) |
 <!---LeetCode Topics End-->
